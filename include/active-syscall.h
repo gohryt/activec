@@ -7,138 +7,138 @@
 
 typedef enum : Uint
 {
-    NONE = 0,
-    PERM = 1,             // Operation not permitted
-    NOENT = 2,            // No such file or directory
-    SRCH = 3,             // No such process
-    INTR = 4,             // Interrupted system call
-    IO = 5,               // I/O error
-    NXIO = 6,             // No such device or address
-    TOOBIG = 7,           // Argument list too long
-    NOEXEC = 8,           // Exec format error
-    BADF = 9,             // Bad file number
-    CHILD = 10,           // No child processes
-    AGAIN = 11,           // Try again
-    NOMEM = 12,           // Out of memory
-    ACCES = 13,           // Permission denied
-    FAULT = 14,           // Bad address
-    NOTBLK = 15,          // Block device required
-    BUSY = 16,            // Device or resource busy
-    EXIST = 17,           // File exists
-    XDEV = 18,            // Cross-device link
-    NODEV = 19,           // No such device
-    NOTDIR = 20,          // Not a directory
-    ISDIR = 21,           // Is a directory
-    INVAL = 22,           // Invalid argument
-    NFILE = 23,           // File table overflow
-    MFILE = 24,           // Too many open files
-    NOTTY = 25,           // Not a typewriter
-    TXTBSY = 26,          // Text file busy
-    FBIG = 27,            // File too large
-    NOSPC = 28,           // No space left on device
-    SPIPE = 29,           // Illegal seek
-    ROFS = 30,            // Read-only file system
-    MLINK = 31,           // Too many links
-    PIPE = 32,            // Broken pipe
-    DOM = 33,             // Math argument out of domain
-    RANGE = 34,           // Math result not representable
-    DEADLK = 35,          // Resource deadlock would occur
-    NAMETOOLONG = 36,     // File name too long
-    NOLCK = 37,           // No record locks available
-    NOSYS = 38,           // Invalid system call number
-    NOTEMPTY = 39,        // Directory not empty
-    LOOP = 40,            // Too many symbolic links encountered
-    NOMSG = 42,           // No message of desired type
-    IDRM = 43,            // Identifier removed
-    CHRNG = 44,           // Channel number out of range
-    L2NSYNC = 45,         // Level 2 not synchronized
-    L3HLT = 46,           // Level 3 halted
-    L3RST = 47,           // Level 3 reset
-    LNRNG = 48,           // Link number out of range
-    UNATCH = 49,          // Protocol driver not attached
-    NOCSI = 50,           // No CSI structure available
-    L2HLT = 51,           // Level 2 halted
-    BADE = 52,            // Invalid exchange
-    BADR = 53,            // Invalid request descriptor
-    XFULL = 54,           // Exchange full
-    NOANO = 55,           // No anode
-    BADRQC = 56,          // Invalid request code
-    BADSLT = 57,          // Invalid slot
-    BFONT = 59,           // Bad font file format
-    NOSTR = 60,           // Device not a stream
-    NODATA = 61,          // No data available
-    TIME = 62,            // Timer expired
-    NOSR = 63,            // Out of streams resources
-    NONET = 64,           // Machine is not on the network
-    NOPKG = 65,           // Package not installed
-    REMOTE = 66,          // Object is remote
-    NOLINK = 67,          // Link has been severed
-    ADV = 68,             // Advertise error
-    SRMNT = 69,           // Srmount error
-    COMM = 70,            // Communication error on send
-    PROTO = 71,           // Protocol error
-    MULTIHOP = 72,        // Multihop attempted
-    DOTDOT = 73,          // RFS specific error
-    BADMSG = 74,          // Not a data message
-    OVERFLOW = 75,        // Value too large for defined data type
-    NOTUNIQ = 76,         // Name not unique on network
-    BADFD = 77,           // File descriptor in bad state
-    REMCHG = 78,          // Remote address changed
-    LIBACC = 79,          // Can not access needed shared library
-    LIBBAD = 80,          // Accessing a corrupted shared library
-    LIBSCN = 81,          // .lib section in a.out corrupted
-    LIBMAX = 82,          // Too many shared libraries
-    LIBEXEC = 83,         // Cannot exec a shared library
-    ILSEQ = 84,           // Illegal byte sequence
-    RESTART = 85,         // Restart interrupted syscall
-    STRPIPE = 86,         // Streams pipe error
-    USERS = 87,           // Too many users
-    NOTSOCK = 88,         // Socket operation on non-socket
-    DESTADDRREQ = 89,     // Destination address required
-    MSGSIZE = 90,         // Message too long
-    PROTOTYPE = 91,       // Protocol wrong type for socket
-    NOPROTOOPT = 92,      // Protocol not available
-    PROTONOSUPPORT = 93,  // Protocol not supported
-    SOCKTNOSUPPORT = 94,  // Socket type not supported
-    OPNOTSUPP = 95,       // Operation not supported on endpoint
-    PFNOSUPPORT = 96,     // Protocol family not supported
-    AFNOSUPPORT = 97,     // Address family not supported
-    ADDRINUSE = 98,       // Address already in use
-    ADDRNOTAVAIL = 99,    // Cannot assign requested address
-    NETDOWN = 100,        // Network is down
-    NETUNREACH = 101,     // Network is unreachable
-    NETRESET = 102,       // Network dropped connection reset
-    CONNABORTED = 103,    // Software caused connection abort
-    CONNRESET = 104,      // Connection reset by peer
-    NOBUFS = 105,         // No buffer space available
-    ISCONN = 106,         // Transport endpoint already connected
-    NOTCONN = 107,        // Transport endpoint not connected
-    SHUTDOWN = 108,       // Cannot send after shutdown
-    TOOMANYREFS = 109,    // Too many references to splice
-    TIMEDOUT = 110,       // Connection timed out
-    CONNREFUSED = 111,    // Connection refused
-    HOSTDOWN = 112,       // Host is down
-    HOSTUNREACH = 113,    // No route to host
-    ALREADY = 114,        // Operation already in progress
-    INPROGRESS = 115,     // Operation now in progress
-    STALE = 116,          // Stale file handle
-    UCLEAN = 117,         // Structure needs cleaning
-    NOTNAM = 118,         // Not a XENIX named type file
-    NAVAIL = 119,         // No XENIX semaphores available
-    ISNAM = 120,          // Is a named type file
-    REMOTEIO = 121,       // Remote I/O error
-    DQUOT = 122,          // Quota exceeded
-    NOMEDIUM = 123,       // No medium found
-    MEDIUMTYPE = 124,     // Wrong medium type
-    CANCELED = 125,       // Operation Canceled
-    NOKEY = 126,          // Required key not available
-    KEYEXPIRED = 127,     // Key has expired
-    KEYREVOKED = 128,     // Key has been revoked
-    KEYREJECTED = 129,    // Key was rejected by service
-    OWNERDEAD = 130,      // Owner died
-    NOTRECOVERABLE = 131, // State not recoverable
-    RFKILL = 132,         // Operation not possible due to RF-kill
-    HWPOISON = 133        // Memory page has hardware error
+    Syscall_Error_NONE = 0,
+    Syscall_Error_PERM = 1,             // Operation not permitted
+    Syscall_Error_NOENT = 2,            // No such file or directory
+    Syscall_Error_SRCH = 3,             // No such process
+    Syscall_Error_INTR = 4,             // Interrupted system call
+    Syscall_Error_IO = 5,               // I/O error
+    Syscall_Error_NXIO = 6,             // No such device or address
+    Syscall_Error_TOOBIG = 7,           // Argument list too long
+    Syscall_Error_NOEXEC = 8,           // Exec format error
+    Syscall_Error_BADF = 9,             // Bad file number
+    Syscall_Error_CHILD = 10,           // No child processes
+    Syscall_Error_AGAIN = 11,           // Try again
+    Syscall_Error_NOMEM = 12,           // Out of memory
+    Syscall_Error_ACCES = 13,           // Permission denied
+    Syscall_Error_FAULT = 14,           // Bad address
+    Syscall_Error_NOTBLK = 15,          // Block device required
+    Syscall_Error_BUSY = 16,            // Device or resource busy
+    Syscall_Error_EXIST = 17,           // File exists
+    Syscall_Error_XDEV = 18,            // Cross-device link
+    Syscall_Error_NODEV = 19,           // No such device
+    Syscall_Error_NOTDIR = 20,          // Not a directory
+    Syscall_Error_ISDIR = 21,           // Is a directory
+    Syscall_Error_INVAL = 22,           // Invalid argument
+    Syscall_Error_NFILE = 23,           // File table overflow
+    Syscall_Error_MFILE = 24,           // Too many open files
+    Syscall_Error_NOTTY = 25,           // Not a typewriter
+    Syscall_Error_TXTBSY = 26,          // Text file busy
+    Syscall_Error_FBIG = 27,            // File too large
+    Syscall_Error_NOSPC = 28,           // No space left on device
+    Syscall_Error_SPIPE = 29,           // Illegal seek
+    Syscall_Error_ROFS = 30,            // Read-only file system
+    Syscall_Error_MLINK = 31,           // Too many links
+    Syscall_Error_PIPE = 32,            // Broken pipe
+    Syscall_Error_DOM = 33,             // Math argument out of domain
+    Syscall_Error_RANGE = 34,           // Math result not representable
+    Syscall_Error_DEADLK = 35,          // Resource deadlock would occur
+    Syscall_Error_NAMETOOLONG = 36,     // File name too long
+    Syscall_Error_NOLCK = 37,           // No record locks available
+    Syscall_Error_NOSYS = 38,           // Invalid system call number
+    Syscall_Error_NOTEMPTY = 39,        // Directory not empty
+    Syscall_Error_LOOP = 40,            // Too many symbolic links encountered
+    Syscall_Error_NOMSG = 42,           // No message of desired type
+    Syscall_Error_IDRM = 43,            // Identifier removed
+    Syscall_Error_CHRNG = 44,           // Channel number out of range
+    Syscall_Error_L2NSYNC = 45,         // Level 2 not synchronized
+    Syscall_Error_L3HLT = 46,           // Level 3 halted
+    Syscall_Error_L3RST = 47,           // Level 3 reset
+    Syscall_Error_LNRNG = 48,           // Link number out of range
+    Syscall_Error_UNATCH = 49,          // Protocol driver not attached
+    Syscall_Error_NOCSI = 50,           // No CSI structure available
+    Syscall_Error_L2HLT = 51,           // Level 2 halted
+    Syscall_Error_BADE = 52,            // Invalid exchange
+    Syscall_Error_BADR = 53,            // Invalid request descriptor
+    Syscall_Error_XFULL = 54,           // Exchange full
+    Syscall_Error_NOANO = 55,           // No anode
+    Syscall_Error_BADRQC = 56,          // Invalid request code
+    Syscall_Error_BADSLT = 57,          // Invalid slot
+    Syscall_Error_BFONT = 59,           // Bad font file format
+    Syscall_Error_NOSTR = 60,           // Device not a stream
+    Syscall_Error_NODATA = 61,          // No data available
+    Syscall_Error_TIME = 62,            // Timer expired
+    Syscall_Error_NOSR = 63,            // Out of streams resources
+    Syscall_Error_NONET = 64,           // Machine is not on the network
+    Syscall_Error_NOPKG = 65,           // Package not installed
+    Syscall_Error_REMOTE = 66,          // Object is remote
+    Syscall_Error_OLINK = 67,           // Link has been severed
+    Syscall_Error_ADV = 68,             // Advertise error
+    Syscall_Error_SRMNT = 69,           // Srmount error
+    Syscall_Error_COMM = 70,            // Communication error on send
+    Syscall_Error_PROTO = 71,           // Protocol error
+    Syscall_Error_MULTIHOP = 72,        // Multihop attempted
+    Syscall_Error_DOTDOT = 73,          // RFS specific error
+    Syscall_Error_BADMSG = 74,          // Not a data message
+    Syscall_Error_OVERFLOW = 75,        // Value too large for defined data type
+    Syscall_Error_NOTUNIQ = 76,         // Name not unique on network
+    Syscall_Error_BADFD = 77,           // File descriptor in bad state
+    Syscall_Error_REMCHG = 78,          // Remote address changed
+    Syscall_Error_LIBACC = 79,          // Can not access needed shared library
+    Syscall_Error_LIBBAD = 80,          // Accessing a corrupted shared library
+    Syscall_Error_LIBSCN = 81,          // .lib section in a.out corrupted
+    Syscall_Error_LIBMAX = 82,          // Too many shared libraries
+    Syscall_Error_LIBEXEC = 83,         // Cannot exec a shared library
+    Syscall_Error_ILSEQ = 84,           // Illegal byte sequence
+    Syscall_Error_RESTART = 85,         // Restart interrupted syscall
+    Syscall_Error_STRPIPE = 86,         // Streams pipe error
+    Syscall_Error_USERS = 87,           // Too many users
+    Syscall_Error_NOTSOCK = 88,         // Socket operation on non-socket
+    Syscall_Error_DESTADDRREQ = 89,     // Destination address required
+    Syscall_Error_MSGSIZE = 90,         // Message too long
+    Syscall_Error_PROTOTYPE = 91,       // Protocol wrong type for socket
+    Syscall_Error_NOPROTOOPT = 92,      // Protocol not available
+    Syscall_Error_PROTONOSUPPORT = 93,  // Protocol not supported
+    Syscall_Error_SOCKTNOSUPPORT = 94,  // Socket type not supported
+    Syscall_Error_OPNOTSUPP = 95,       // Operation not supported on endpoint
+    Syscall_Error_PFNOSUPPORT = 96,     // Protocol family not supported
+    Syscall_Error_AFNOSUPPORT = 97,     // Address family not supported
+    Syscall_Error_ADDRINUSE = 98,       // Address already in use
+    Syscall_Error_ADDRNOTAVAIL = 99,    // Cannot assign requested address
+    Syscall_Error_NETDOWN = 100,        // Network is down
+    Syscall_Error_NETUNREACH = 101,     // Network is unreachable
+    Syscall_Error_NETRESET = 102,       // Network dropped connection reset
+    Syscall_Error_CONNABORTED = 103,    // Software caused connection abort
+    Syscall_Error_CONNRESET = 104,      // Connection reset by peer
+    Syscall_Error_NOBUFS = 105,         // No buffer space available
+    Syscall_Error_ISCONN = 106,         // Transport endpoint already connected
+    Syscall_Error_NOTCONN = 107,        // Transport endpoint not connected
+    Syscall_Error_SHUTDOWN = 108,       // Cannot send after shutdown
+    Syscall_Error_TOOMANYREFS = 109,    // Too many references to splice
+    Syscall_Error_TIMEDOUT = 110,       // Connection timed out
+    Syscall_Error_CONNREFUSED = 111,    // Connection refused
+    Syscall_Error_HOSTDOWN = 112,       // Host is down
+    Syscall_Error_HOSTUNREACH = 113,    // No route to host
+    Syscall_Error_ALREADY = 114,        // Operation already in progress
+    Syscall_Error_INPROGRESS = 115,     // Operation now in progress
+    Syscall_Error_STALE = 116,          // Stale file handle
+    Syscall_Error_UCLEAN = 117,         // Structure needs cleaning
+    Syscall_Error_NOTNAM = 118,         // Not a XENIX named type file
+    Syscall_Error_NAVAIL = 119,         // No XENIX semaphores available
+    Syscall_Error_ISNAM = 120,          // Is a named type file
+    Syscall_Error_REMOTEIO = 121,       // Remote I/O error
+    Syscall_Error_DQUOT = 122,          // Quota exceeded
+    Syscall_Error_NOMEDIUM = 123,       // No medium found
+    Syscall_Error_MEDIUMTYPE = 124,     // Wrong medium type
+    Syscall_Error_CANCELED = 125,       // Operation Canceled
+    Syscall_Error_NOKEY = 126,          // Required key not available
+    Syscall_Error_KEYEXPIRED = 127,     // Key has expired
+    Syscall_Error_KEYREVOKED = 128,     // Key has been revoked
+    Syscall_Error_KEYREJECTED = 129,    // Key was rejected by service
+    Syscall_Error_OWNERDEAD = 130,      // Owner died
+    Syscall_Error_NOTRECOVERABLE = 131, // State not recoverable
+    Syscall_Error_RFKILL = 132,         // Operation not possible due to RF-kill
+    Syscall_Error_HWPOISON = 133        // Memory page has hardware error
 } Syscall_Error;
 
 String Syscall_Error_STRING_TABLE[134] = {
@@ -287,11 +287,66 @@ Uint Syscall_Result_MAX_UINT = ((Uint) ~(Uint)0) - 4095;
 Syscall_Result(S32);
 Syscall_Result(Uint);
 
-extern S32 Syscall_openatRaw(S32 FD);
-
-[[clang::always_inline]] inline Syscall_ResultS32 Syscall_openat(S32 FD)
+typedef enum : U8
 {
-    S32 raw = Syscall_openatRaw(FD);
+    Syscall_File_Flags_AccessMode_R = 0,
+    Syscall_File_Flags_AccessMode_W = 1,
+    Syscall_File_Flags_AccessMode_RW = 2,
+} Syscall_File_Flags_AccessMode;
+
+typedef struct [[gnu::packed]]
+{
+    Syscall_File_Flags_AccessMode access_mode : 2;
+    U8 _2 : 4;
+    bool create : 1;
+    bool exclusive : 1;
+    bool no_controlling_tty : 1;
+    bool truncate : 1;
+    bool append : 1;
+    bool nonblock : 1;
+    bool dsynchronous : 1;
+    bool asynchronous : 1;
+    bool direct : 1;
+    U8 _15 : 1;
+    bool directory : 1;
+    bool no_follow : 1;
+    bool no_atime : 1;
+    bool close_on_exec : 1;
+    bool sync : 1;
+    bool path : 1;
+    bool tmp_file : 1;
+    U16 _23 : 9;
+} Syscall_File_Flags;
+
+typedef enum : U8
+{
+    Syscall_Mode_Permissions_NONE = 0x0,
+    Syscall_Mode_Permissions_X = 0x1,
+    Syscall_Mode_Permissions_W = 0x2,
+    Syscall_Mode_Permissions_WX = 0x3,
+    Syscall_Mode_Permissions_R = 0x4,
+    Syscall_Mode_Permissions_RX = 0x5,
+    Syscall_Mode_Permissions_RW = 0x6,
+    Syscall_Mode_Permissions_RWX = 0x7,
+} Syscall_Mode_Permissions;
+
+typedef struct [[gnu::packed]]
+{
+    Syscall_Mode_Permissions others : 4;
+    Syscall_Mode_Permissions group : 4;
+    Syscall_Mode_Permissions owner : 4;
+    bool sticky : 1;
+    bool set_gid : 1;
+    bool set_uid : 1;
+    U32 _15 : 17;
+} Syscall_Mode;
+
+extern S32 Syscall_openatRaw(S32 directory_FD, StringSentinel path, Syscall_File_Flags flags, Syscall_Mode mode);
+
+[[clang::always_inline]] inline Syscall_ResultS32 Syscall_openat(S32 directory_FD, StringSentinel path,
+                                                                 Syscall_File_Flags flags, Syscall_Mode mode)
+{
+    S32 raw = Syscall_openatRaw(directory_FD, path, flags, mode);
     return raw < 0 ? (Syscall_ResultS32){.result = 0, .error = (Uint)0 - raw}
                    : (Syscall_ResultS32){.result = raw, .error = 0};
 }
@@ -304,11 +359,79 @@ extern Uint Syscall_closeRaw(S32 FD);
     return raw > Syscall_Result_MAX_UINT ? (Uint)0 - raw : 0;
 }
 
-extern Uint Syscall_statxRaw(S32 FD);
-
-[[clang::always_inline]] inline Syscall_Error Syscall_statx(S32 FD)
+typedef struct [[gnu::packed]]
 {
-    Uint raw = Syscall_statxRaw(FD);
+    U8 _0 : 8;
+    bool symlink_nofollow : 1;
+    bool removedir : 1;
+    bool symlink_follow : 1;
+    bool no_automount : 1;
+    bool empty_path : 1;
+    bool force_sync : 1;
+    bool dont_sync : 1;
+    U32 _15 : 17;
+} Syscall_At;
+
+typedef struct
+{
+    S64 second;
+    U32 nanosecond;
+    U32 _12;
+} Syscall_Statx_Timestamp;
+
+typedef struct [[gnu::packed]]
+{
+    bool type : 1;
+    bool mode : 1;
+    bool nlink : 1;
+    bool UID : 1;
+    bool GID : 1;
+    bool atime : 1;
+    bool mtime : 1;
+    bool ctime : 1;
+    bool ino : 1;
+    bool size : 1;
+    bool blocks : 1;
+    bool btime : 1;
+    bool mount_ID : 1;
+    bool dioalign : 1;
+    bool mount_ID_unique : 1;
+    bool subvolume : 1;
+    U16 _16 : 16;
+} Syscall_Statx_Mask;
+
+typedef struct
+{
+    Syscall_Statx_Mask mask;
+    U32 blksize;
+    U64 attributes;
+    U32 nlink;
+    U32 uid;
+    U32 gid;
+    U16 mode;
+    U16 _30[1];
+    U64 ino;
+    U64 size;
+    U64 blocks;
+    U64 attributes_mask;
+    Syscall_Statx_Timestamp atime;
+    Syscall_Statx_Timestamp btime;
+    Syscall_Statx_Timestamp ctime;
+    Syscall_Statx_Timestamp mtime;
+    U32 rdev_major;
+    U32 rdev_minor;
+    U32 dev_major;
+    U32 dev_minor;
+    U64 _144[14];
+} Syscall_Statx;
+
+extern Uint Syscall_statxRaw(S32 directory_FD, StringSentinel path, Syscall_At flags, Syscall_Statx_Mask mask,
+                             Syscall_Statx *statx_ptr);
+
+[[clang::always_inline]] inline Syscall_Error Syscall_statx(S32 directory_FD, StringSentinel path, Syscall_At flags,
+                                                            Syscall_Statx_Mask mask, Syscall_Statx *statx_ptr)
+{
+    Uint raw = Syscall_statxRaw(directory_FD, path, flags, mask, statx_ptr);
     return raw > Syscall_Result_MAX_UINT ? (Uint)0 - raw : 0;
 }
 
