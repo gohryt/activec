@@ -282,27 +282,43 @@ String Syscall_Error_STRING_TABLE[134] = {
         Syscall_Error error;                                                                                           \
     } Syscall_Result##T;
 
-Uint SYSCALL_RESULT_MAX = ((Uint) ~(Uint)0) - 4095;
+Uint Syscall_Result_MAX_UINT = ((Uint) ~(Uint)0) - 4095;
 
+Syscall_Result(S32);
 Syscall_Result(Uint);
+
+extern S32 Syscall_openatRaw(S32 FD);
+
+[[clang::always_inline]] inline Syscall_ResultS32 Syscall_openat(S32 FD)
+{
+    S32 raw = Syscall_openatRaw(FD);
+    return raw < 0 ? (Syscall_ResultS32){.result = 0, .error = (Uint)0 - raw}
+                   : (Syscall_ResultS32){.result = raw, .error = 0};
+}
+
+extern Uint Syscall_closeRaw(S32 FD);
+
+[[clang::always_inline]] inline Syscall_Error Syscall_close(S32 FD)
+{
+    Uint raw = Syscall_closeRaw(FD);
+    return raw > Syscall_Result_MAX_UINT ? (Uint)0 - raw : 0;
+}
+
+extern Uint Syscall_statxRaw(S32 FD);
+
+[[clang::always_inline]] inline Syscall_Error Syscall_statx(S32 FD)
+{
+    Uint raw = Syscall_statxRaw(FD);
+    return raw > Syscall_Result_MAX_UINT ? (Uint)0 - raw : 0;
+}
 
 extern Uint Syscall_readRaw(S32 FD, U8 *ptr, Uint len);
 
 [[clang::always_inline]] inline Syscall_ResultUint Syscall_read(S32 FD, U8 *ptr, Uint len)
 {
     Uint raw = Syscall_readRaw(FD, ptr, len);
-
-    Syscall_ResultUint result;
-    if (raw > SYSCALL_RESULT_MAX)
-    {
-        result = (Syscall_ResultUint){.result = 0, .error = (Uint)0 - raw};
-    }
-    else
-    {
-        result = (Syscall_ResultUint){.result = raw, .error = 0};
-    }
-
-    return result;
+    return raw > Syscall_Result_MAX_UINT ? (Syscall_ResultUint){.result = 0, .error = (Uint)0 - raw}
+                                         : (Syscall_ResultUint){.result = raw, .error = 0};
 }
 
 extern Uint Syscall_writeRaw(S32 FD, U8 *ptr, Uint len);
@@ -310,23 +326,13 @@ extern Uint Syscall_writeRaw(S32 FD, U8 *ptr, Uint len);
 [[clang::always_inline]] inline Syscall_ResultUint Syscall_write(S32 FD, U8 *ptr, Uint len)
 {
     Uint raw = Syscall_writeRaw(FD, ptr, len);
-
-    Syscall_ResultUint result;
-    if (raw > SYSCALL_RESULT_MAX)
-    {
-        result = (Syscall_ResultUint){.result = 0, .error = (Uint)0 - raw};
-    }
-    else
-    {
-        result = (Syscall_ResultUint){.result = raw, .error = 0};
-    }
-
-    return result;
+    return raw > Syscall_Result_MAX_UINT ? (Syscall_ResultUint){.result = 0, .error = (Uint)0 - raw}
+                                         : (Syscall_ResultUint){.result = raw, .error = 0};
 }
 
 [[noreturn]] extern void Syscall_exitRaw(S32 code);
 
-[[clang::always_inline]] [[noreturn]] inline void Syscall_exit(S32 code)
+[[noreturn]] [[clang::always_inline]] inline void Syscall_exit(S32 code)
 {
     Syscall_exitRaw(code);
 }
